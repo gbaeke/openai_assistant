@@ -1,0 +1,102 @@
+{
+    "id": "run_nHW3PXYspN6yfX9CFoRvLeCd",
+    "assistant_id": "asst_12rntJWxpK1jPHAlPazTcThi",
+    "cancelled_at": null,
+    "completed_at": null,
+    "created_at": 1700051213,
+    "expires_at": 1700051813,
+    "failed_at": null,
+    "file_ids": [],
+    "instructions": "\n            Please address the user as Geert. Help the user with Hue lights. \n            When the user says 'floor lamp' or similar, only drop the word lamp. \n            Always capitalize the lamp name. Never try an action again unless the user asks.",
+    "last_error": null,
+    "metadata": {},
+    "model": "gpt-4-1106-preview",
+    "object": "thread.run",
+    "required_action": {
+        "submit_tool_outputs": {
+            "tool_calls": [
+                {
+                    "id": "call_12swMKzheG9gS3CA0e8dFhcF",
+                    "function": {
+                        "arguments": "{\"location\":\"rack room\"}",
+                        "name": "get_lights"
+                    },
+                    "type": "function"
+                }
+            ]
+        },
+        "type": "submit_tool_outputs"
+    },
+    "started_at": 1700051213,
+    "status": "requires_action",
+    "thread_id": "thread_zdTHOFM2ektWEIhZ2VLjDpwU",
+    "tools": [
+        {
+            "function": {
+                "name": "set_light",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "light": {
+                            "type": "string",
+                            "description": "Name of the lamp"
+                        },
+                        "state": {
+                            "type": "boolean",
+                            "description": "Turn lamp on or off"
+                        }
+                    },
+                    "required": [
+                        "light",
+                        "state"
+                    ]
+                },
+                "description": "Set light on or off"
+            },
+            "type": "function"
+        },
+        {
+            "function": {
+                "name": "set_light brightness",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "light": {
+                            "type": "string",
+                            "description": "Name of the lamp"
+                        },
+                        "brightness": {
+                            "type": "number",
+                            "description": "Brightness between 0 and 100"
+                        }
+                    },
+                    "required": [
+                        "light",
+                        "brightness"
+                    ]
+                },
+                "description": "Set light brightness higher or lower"
+            },
+            "type": "function"
+        },
+        {
+            "function": {
+                "name": "get_lights",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "location": {
+                            "type": "string",
+                            "description": "The location or all if you want all lights"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ]
+                },
+                "description": "Get lights in a location"
+            },
+            "type": "function"
+        }
+    ]
+}
