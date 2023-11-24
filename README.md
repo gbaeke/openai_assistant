@@ -1,6 +1,8 @@
 # openai_assistant
 Home automation with the OpenAI Assistants API
 
+Check the video: https://youtu.be/VglcqneAbvE
+
 **Note:** you will need Hue lights to use this app as is
 
 Ensure you add a `.env` file with the following:
